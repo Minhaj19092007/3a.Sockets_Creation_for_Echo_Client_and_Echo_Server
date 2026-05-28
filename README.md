@@ -8,8 +8,52 @@ Sockets Links.
 3. Send message to the client and receive the message from the client using the Socket module in
  server .
 4. Send and receive the message using the send function in socket.
-## PROGRAM
+## PROGRAM:
+Client.py:
+```
+import socket
+s=socket.socket()
+s.connect(('localhost', 8002))
+while True:
+    msg=input("Client > ")
+    s.send(msg.encode())
+    if msg=="exit":
+        print("Disconnected")
+        break
+    print("Echo of Server >", s.recv(1024).decode())
+s.close()
+```
+Server.py:
+```
+import socket
+s=socket.socket()
+s.bind(('localhost', 8002))
+s.listen(1)
+print("Waiting for connection...")
+c, addr=s.accept()
+print("Connected to", addr)
+while True:
+    clientMessage=c.recv(1024).decode()
+    if clientMessage=="exit":
+        print("Client disconnected")
+        break
+    print("Echo of Client >", clientMessage)
+    reply = input("Server > ")
+    c.send(reply.encode())
+c.close()
+s.close()
+```
 ## OUPUT
+Client.py:
+
+<img width="829" height="285" alt="image" src="https://github.com/user-attachments/assets/df10f6e2-46a2-4b6f-be5e-13d73580e2e5" />
+
+ 
+Server.py:
+
+<img width="847" height="323" alt="image" src="https://github.com/user-attachments/assets/10665f95-b885-43ac-8fa4-0d73b4aa885e" />
+
+
 ## RESULT
 Thus, the python program for creating Echo Client and Echo Server using TCP Sockets Links 
 was successfully created and executed.
