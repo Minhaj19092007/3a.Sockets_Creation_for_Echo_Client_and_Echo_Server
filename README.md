@@ -48,7 +48,6 @@ Client.py:
 
 <img width="829" height="285" alt="image" src="https://github.com/user-attachments/assets/df10f6e2-46a2-4b6f-be5e-13d73580e2e5" />
 
- 
 Server.py:
 
 <img width="847" height="323" alt="image" src="https://github.com/user-attachments/assets/10665f95-b885-43ac-8fa4-0d73b4aa885e" />
